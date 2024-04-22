@@ -141,6 +141,16 @@ export default function LineUp() {
 
   const [clickedCar, setClickedCar] = useState<string | null>(null);
 
+  const [hoveredCar, setHoveredCar] = useState<string | null>(null);
+
+  const handleMouseEnter = (id: string | null) => {
+    setHoveredCar(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredCar(null);
+  };
+
   // Recieve props from parent component
   const handleClick = (header: string) => {
     if (clickedCar === header) {
@@ -151,16 +161,22 @@ export default function LineUp() {
   };
 
   return (
-    <div>
-      <h1 className='text-[25px] px-4 py-8'>ラインアップ</h1>
+    <div className='px-4 lg:px-8'>
+      <h1 className='text-[25px] text-black font-bold py-8 lg:text-[28px]'>
+        ラインアップ
+      </h1>
 
       <div className='line_up_container'>
         {/* Render Header */}
-        <div className='lineup_navbar flex flex-row p-4 gap-5 overflow-x-scroll text-[16px]'>
+        <div className='lineup_navbar flex flex-row pt-4 pb-6 gap-5 overflow-x-scroll text-[16px] lg:text-[24px] lg:justify-between '>
           {lineUpCarHeaders.map((header) => (
             <div
               key={header}
-              className='whitespace-nowrap'
+              className={`whitespace-nowrap ${
+                clickedCar === header
+                  ? 'border-b-4 border-red-600 duration-300'
+                  : 'text-black'
+              }`}
               onClick={() => handleClick(header)}
               style={{ cursor: 'pointer' }}
             >
@@ -169,7 +185,7 @@ export default function LineUp() {
           ))}
         </div>
 
-        <div className='lineup_images flex flex-row p-4 py-12 w-full h-auto gap-8 overflow-x-scroll '>
+        <div className='lineup_images flex flex-row py-12 w-full h-auto gap-8 overflow-x-scroll lg:gap-16'>
           {lineUpCars
             .filter((car) => {
               if (clickedCar === 'コンパクト') {
@@ -194,15 +210,23 @@ export default function LineUp() {
             // Render Car Images
             .map(({ id, src, alt }) => (
               <div
-                className='w-[200px] h-[120px] flex-shrink-0 duration-300 '
+                className='w-[180px] h-[100px] lg:w-[320px] lg:h-[180px] flex-shrink-0 duration-300'
                 key={id}
               >
                 <Image
                   src={src}
-                  width={200}
+                  width={230}
                   height={120}
                   alt={alt}
-                  className='object-fit w-[170px] h-[110px] max-w-full max-h-full rounded-lg shadow-md'
+                  className='object-fit w-[180px] h-[100px] max-w-full max-h-full rounded-lg shadow-md lg:hidden'
+                  objectFit=''
+                />
+                <Image
+                  src={src}
+                  width={230}
+                  height={120}
+                  alt={alt}
+                  className='object-fit w-[320px] h-[180px] max-w-full max-h-full rounded-lg shadow-md hidden lg:block'
                   objectFit=''
                 />
               </div>

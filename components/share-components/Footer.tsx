@@ -18,7 +18,7 @@ const Footer = () => {
             className='object-contain w-[30px] h-[30px]'
           />
           <p className='text-base text-gray-700'>
-            Carhub 2024 <br /> All rights reserved &copy;
+            Toyota 2024 <br /> All rights reserved &copy;
           </p>
         </div>
 
@@ -46,16 +46,26 @@ const Footer = () => {
 
       {/* // */}
       {/* @2024 CarHub. All rights reserved. */}
-      <div className='flex justify-between items-center flex-wrap mt-10 border- border-gray-100 sm:px-16 py-10 pl-10'>
+      <div className='flex justify-between items-center flex-wrap mt-10 border-t border-gray-200 px-8 lg:px-16 py-6'>
         <p>@2024 Toyota. All rights reserved.</p>
 
-        <div className='footer__copyrights-link '>
-          <Link href='/' className='text-gray-500'>
-            Privacy Policy
-          </Link>
-          <Link href='/' className='text-gray-500'>
-            Terms of Service
-          </Link>
+        <div className='footer__copyrights-link py-4 flex gap-8'>
+          <a
+            href='/https://global.toyota/en/privacy-notice/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-gray-500'
+          >
+            プライバシーポリシー
+          </a>
+          <a
+            href='https://global.toyota/en/terms-of-use/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-gray-500 px-4'
+          >
+            利用規約
+          </a>
         </div>
       </div>
     </footer>

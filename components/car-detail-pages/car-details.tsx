@@ -70,7 +70,7 @@ const CarInfo = ({
 }) => (
   <div
     className={`car_container pt-${
-      isFirst ? '36' : '16'
+      isFirst ? '16' : '36'
     } gap-4 px-4 lg:px-8 lg:object-cover`}
   >
     <ShareImageProps
