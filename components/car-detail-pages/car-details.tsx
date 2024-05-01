@@ -10,7 +10,7 @@ const cars = [
     origin: 'タイ',
     style: 'セダン',
     fuel: 'ガソリン',
-    price: '725.000.000° VNĐから',
+    price: '725.000.000 VNĐから',
     imageSrc: '/images/car-details/wigo.png',
     altText: 'wigo',
   },
@@ -20,7 +20,7 @@ const cars = [
     origin: 'タイ',
     style: 'ピックアップトラック',
     fuel: 'ディーゼル',
-    price: '800.000.000° VNĐから',
+    price: '800.000.000 VNĐから',
     imageSrc: '/images/car-details/hilux.png',
     altText: 'hilux',
   },
@@ -30,7 +30,7 @@ const cars = [
     origin: 'タイ',
     style: 'セダン',
     fuel: 'ガソリン',
-    price: '800.000.000° VNĐから',
+    price: '800.000.000 VNĐから',
     imageSrc: '/images/car-details/vios.png',
     altText: 'vios',
   },
@@ -40,7 +40,7 @@ const cars = [
     origin: '日本',
     style: 'SUV',
     fuel: 'ガソリン',
-    price: '900.000.000° VNĐから',
+    price: '900.000.000 VNĐから',
     imageSrc: '/images/car-details/raize.png',
     altText: 'raize',
   },
@@ -68,11 +68,7 @@ const CarInfo = ({
   altText: string;
   isFirst: boolean;
 }) => (
-  <div
-    className={`car_container pt-${
-      isFirst ? '16' : '36'
-    } gap-4 px-4 lg:px-8 lg:object-cover`}
-  >
+  <div className={`car_container pt-36 gap-4 px-4 lg:px-8 lg:object-cover`}>
     <ShareImageProps
       src={imageSrc}
       alt={altText}
@@ -80,6 +76,8 @@ const CarInfo = ({
       height={500}
       className='h-full w-full border-8 border-t-0 border-r-0 border-red-600 object-fit'
     />
+
+    {/* Render Car Details Contents */}
     <div className='p-4 lg:text-[22px] '>
       <h2 className='text-2xl font-bold mb-2 lg:text-[28px]'>{name}</h2>
       <p className='text-xl font-medium mb-2'>{description}</p>
@@ -96,14 +94,11 @@ const CarInfo = ({
 
 const Page = () => {
   return (
-    <>
-      <CarBar />
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        {cars.map((car, index) => (
-          <CarInfo isFirst={false} key={index} {...car} />
-        ))}
-      </div>
-    </>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+      {cars.map((car, index) => (
+        <CarInfo isFirst={false} key={index} {...car} />
+      ))}
+    </div>
   );
 };
 

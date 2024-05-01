@@ -210,7 +210,7 @@ export default function LineUp() {
             // Render Car Images
             .map(({ id, src, alt }) => (
               <div
-                className='w-[180px] h-[100px] lg:w-[320px] lg:h-[180px] flex-shrink-0 duration-300'
+                className='w-[200px] h-[100px] lg:w-[400px] lg:h-[200px] flex-shrink-0 duration-300'
                 key={id}
               >
                 <Image
@@ -218,7 +218,7 @@ export default function LineUp() {
                   width={230}
                   height={120}
                   alt={alt}
-                  className='object-fit w-[180px] h-[100px] max-w-full max-h-full rounded-lg shadow-md lg:hidden'
+                  className='object-fit w-[200px] h-[100px] max-w-full max-h-full rounded-lg lg:hidden'
                   objectFit=''
                 />
                 <Image
@@ -226,7 +226,7 @@ export default function LineUp() {
                   width={230}
                   height={120}
                   alt={alt}
-                  className='object-fit w-[320px] h-[180px] max-w-full max-h-full rounded-lg shadow-md hidden lg:block'
+                  className='object-fit w-[400px] h-[200px] max-w-full max-h-full rounded-lg hidden lg:block'
                   objectFit=''
                 />
               </div>
